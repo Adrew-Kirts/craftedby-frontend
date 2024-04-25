@@ -1,5 +1,3 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
 name: CraftedBy CI and Docker deployment
 
@@ -11,25 +9,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+      name: Checkout code
+    
+    - name: Read Version
+      id: version
+      run: echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
 
     - name: Build Docker image
-      run: docker build . -t adrewkirts/crafted-by_frontend:latest
+      run: docker build . -t adrewkirts/crafted-by_frontend:latest -t adrewkirts/crafted-by_frontend:${{ env.VERSION }}
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v1
@@ -38,7 +28,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push Docker Image
-      run: docker push adrewkirts/crafted-by_frontend:latest
+      run: docker push adrewkirts/crafted-by_frontend:${{ env.VERSION }}
 
     - name: Deploy to server
       uses: appleboy/ssh-action@v0.1.4
@@ -48,5 +38,6 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}
         script: |
           cd dockerfiles/frontend/
-          docker pull adrewkirts/crafted-by_frontend:latest
+          sed -i "s|adrewkirts/crafted-by_frontend:.*|adrewkirts/crafted-by_frontend:${{ env.VERSION }}|g" docker-compose.yml
+          docker pull adrewkirts/crafted-by_frontend:${{ env.VERSION }}
           docker-compose up -d
