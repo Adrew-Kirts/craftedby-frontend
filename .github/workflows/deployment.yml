@@ -10,7 +10,7 @@ jobs:
   read_version:
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.version.outputs.version }}
+      version: ${{ steps.set_version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout code
@@ -23,6 +23,8 @@ jobs:
   build_and_push:
     needs: read_version
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ needs.read_version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
         name: Checkout code
@@ -50,6 +52,6 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd dockerfiles/frontend/
-            sed -i "s|adrewkirts/crafted-by_frontend:.*|adrewkirts/crafted-by_frontend:${{ needs.read_version.outputs.version }}|g" docker-compose.yml
-            sudo docker pull adrewkirts/crafted-by_frontend:${{ needs.read_version.outputs.version }}
+            sed -i "s|adrewkirts/crafted-by_frontend:.*|adrewkirts/crafted-by_frontend:${{ needs.build_and_push.outputs.version }}|g" docker-compose.yml
+            sudo docker pull adrewkirts/crafted-by_frontend:${{ needs.build_and_push.outputs.version }}
             sudo docker compose up -d
