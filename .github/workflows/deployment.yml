@@ -1,9 +1,11 @@
 
-name: CraftedBy CI and Docker deployment
+name: CraftedBy Frontend server deploy
 
 on:
   push:
     branches: [ "prod" ]
+    paths:
+      - 'version.txt'
 
 jobs:
   build:
