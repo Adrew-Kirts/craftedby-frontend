@@ -40,4 +40,4 @@ jobs:
           cd dockerfiles/frontend/
           sed -i "s|adrewkirts/crafted-by_frontend:.*|adrewkirts/crafted-by_frontend:${{ env.VERSION }}|g" docker-compose.yml
           sudo docker pull adrewkirts/crafted-by_frontend:${{ env.VERSION }}
-          sudo docker-compose up -d
+          sudo docker compose up -d
