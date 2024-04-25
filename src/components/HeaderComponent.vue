@@ -1,6 +1,6 @@
 <template>
 
-  <div class="border-t navbar sticky top-0 z-50 bg-green-600 md:min-h-[50px]">
+  <div class="border-t navbar sticky top-0 z-50 bg-accent md:min-h-[50px]">
     <!-- Burger menu button for mobile screens only -->
     <div class="navbar-start" style="margin-left: 5%;">
       <div ref="menuDropdownRef" class="dropdown md:hidden">
