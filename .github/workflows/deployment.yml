@@ -1,3 +1,4 @@
+
 name: CraftedBy Frontend server deploy
 
 on:
@@ -7,51 +8,38 @@ on:
       - 'version.txt'
 
 jobs:
-  read_version:
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.set_version.outputs.version }}
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout code
-      - name: Read Version
-        id: version
-        run: |
-          echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
-          echo "::set-output name=version::$(cat version.txt)"
+  build:
 
-  build_and_push:
-    needs: read_version
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ needs.read_version.outputs.version }}
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout code
-      - name: Build Docker image
-        run: docker build . -t adrewkirts/crafted-by_frontend:latest -t adrewkirts/crafted-by_frontend:${{ needs.read_version.outputs.version }}
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-      - name: Push Docker Image
-        run: docker push adrewkirts/crafted-by_frontend:${{ needs.read_version.outputs.version }}
 
-  deploy:
-    needs: build_and_push
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        name: Checkout code
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v0.1.4
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            cd dockerfiles/frontend/
-            sed -i "s|adrewkirts/crafted-by_frontend:.*|adrewkirts/crafted-by_frontend:${{ needs.build_and_push.outputs.version }}|g" docker-compose.yml
-            sudo docker pull adrewkirts/crafted-by_frontend:${{ needs.build_and_push.outputs.version }}
-            sudo docker compose up -d
+    - uses: actions/checkout@v3
+      name: Checkout code
+
+    - name: Read Version
+      id: version
+      run: echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
+
+    - name: Build Docker image
+      run: docker build . -t adrewkirts/crafted-by_frontend:latest -t adrewkirts/crafted-by_frontend:${{ env.VERSION }}
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Push Docker Image
+      run: docker push adrewkirts/crafted-by_frontend:${{ env.VERSION }}
+
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v0.1.4
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        script: |
+          cd dockerfiles/frontend/
+          sed -i "s|adrewkirts/crafted-by_frontend:.*|adrewkirts/crafted-by_frontend:${{ env.VERSION }}|g" docker-compose.yml
+          sudo docker pull adrewkirts/crafted-by_frontend:${{ env.VERSION }}
+          sudo docker compose up -d
