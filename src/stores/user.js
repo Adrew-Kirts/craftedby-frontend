@@ -27,12 +27,10 @@ export const useUserStore = defineStore('user', {
     // },
 
     async signIn(email, password, rememberMe) {
+      // Initialize CSRF protection
+      await api.get('/sanctum/csrf-cookie');
 
       try {
-        // Initialize CSRF protection
-        // await axios.get('/sanctum/csrf-cookie');
-        await api.get('/sanctum/csrf-cookie');
-
         const res = await api.post('/login', { email, password, rememberMe });
         this.storeUser(res.data.user);
         this.storeToken(res.data.token);
