@@ -224,7 +224,7 @@ onMounted(() => {
 })
 
 function getFullImagePath(imagePath) {
-  const apiBaseURL = `${import.meta.env.VITE_IMAGE_BASE_URL}/images/products/`
+  const apiBaseURL = `${import.meta.env.VITE_IMAGE_BASE_URL}`
   return `${apiBaseURL}${imagePath}`
 }
 </script>
