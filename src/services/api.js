@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
 const token = localStorage.getItem('token') || null;
 
 const api = axios.create({
@@ -10,7 +8,6 @@ const api = axios.create({
     Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json',
     Accept: 'application/json',
-    'X-CSRF-TOKEN': csrfToken,
   },
 });
 
