@@ -27,7 +27,7 @@
           <td class="flex items-center">
 <!--            <img :src="'http://localhost:8000/images/products/' + item.image_path" alt="Image du produit" class="w-20 h-20 object-cover">-->
 <!--            <img :src="imageBaseUrl + '/images/products/' + item.image_path" alt="Image du produit" class="w-20 h-20 object-cover">-->
-            <img :src="`${imageBaseUrl}/images/products/${item.image_path}`" alt="Image du produit" class="w-20 h-20 object-cover">
+            <img :src="imageUrl(item)" alt="Image du produit" class="w-20 h-20 object-cover">
           </td>
           <td class="uppercase">{{ item.name }}</td>
           <td>€{{ item.price }}</td>
@@ -51,7 +51,7 @@
             <button @click="cart.removeFromCart(item.id)" class="btn btn-ghost btn-xl text-primary open-sans-regular mb-5 text-xl">X</button>
           </div>
           <div class="flex items-center space-x-3">
-            <img :src="`${imageBaseUrl}/images/products/${item.image_path}`" alt="Image du produit" class="w-24 h-24 object-cover">
+            <img :src="imageUrl(item)" alt="Image du produit" class="w-24 h-24 object-cover">
             <p class="uppercase flex-grow">{{ item.name }}</p>
           </div>
           <div class="grid grid-cols-2 gap-4 mt-4 items-center"> <!-- Adjusted items-center here -->
@@ -100,7 +100,11 @@ import NotificationComponent from '@/components/NotificationComponent.vue'
 const notificationMessage = ref('');
 const notificationType = ref('success');
 
-const imageBaseUrl = ref(import.meta.env.VITE_IMAGE_BASE_URL);
+// const imageBaseUrl = ref(import.meta.env.VITE_IMAGE_BASE_URL);
+
+function imageUrl(item) {
+  return `${import.meta.env.VITE_IMAGE_BASE_URL}/${item.image_path}`
+}
 
 const user = useUserStore();
 const cart = useCartStore();
