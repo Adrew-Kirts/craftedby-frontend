@@ -71,18 +71,6 @@
           <input v-model="website" class="input input-bordered rounded-none md:w-72" type="text" />
         </div>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Choisissez votre spécialité<span class="text-error">*</span></span>
-          </label>
-          <select v-if="specialties && specialties.length" v-model="specialty"
-                  class="select select-bordered rounded-none md:w-72">
-            <option v-for="specialty in specialties" :key="specialty.id" :value="specialty.id">
-              {{ specialty.name }}
-            </option>
-          </select>
-        </div>
-
       </div>
 
       <div class="form-control">
