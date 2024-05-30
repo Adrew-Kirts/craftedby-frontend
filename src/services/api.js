@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
 const token = localStorage.getItem('token') || null;
+
+axios.defaults.withCredentials = true;
+axios.defaults.withXSRFToken = true;
 
 const api = axios.create({
   baseURL: `${import.meta.env.VITE_API_ENDPOINT}/`,
@@ -10,7 +11,6 @@ const api = axios.create({
     Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json',
     Accept: 'application/json',
-    'X-CSRF-TOKEN': csrfToken,
   },
 });
 

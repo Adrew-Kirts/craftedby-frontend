@@ -28,17 +28,30 @@ export const useUserStore = defineStore('user', {
 
     async signIn(email, password, rememberMe) {
 
-      try {
-        // Initialize CSRF protection
-        // await axios.get('/sanctum/csrf-cookie');
-        await api.get('/sanctum/csrf-cookie');
+      await api.get('/sanctum/csrf-cookie').then(async response => {
+        try {
+          const res = await api.post('/login', { email, password, rememberMe });
+          this.storeUser(res.data.user);
+          this.storeToken(res.data.token);
+          console.log(response);
+        } catch (error) {
+          console.error('Login failed:', error);
+        }
+      });
 
-        const res = await api.post('/login', { email, password, rememberMe });
-        this.storeUser(res.data.user);
-        this.storeToken(res.data.token);
-      } catch (error) {
-        console.error('Login failed:', error);
-      }
+
+      // // Initialize CSRF protection
+      // await api.get('/sanctum/csrf-cookie');
+      //
+      // try {
+      //   const res = await api.post('/login', { email, password, rememberMe });
+      //   this.storeUser(res.data.user);
+      //   this.storeToken(res.data.token);
+      // } catch (error) {
+      //   console.error('Login failed:', error);
+      // }
+
+
     },
 
     async passwordReset(email) {
