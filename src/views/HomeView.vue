@@ -33,11 +33,11 @@
           <a href="#" class="px-4 py-2 open-sans-regular underline text-sm">CONTINUER LECTURE</a>
         </div>
         <div class="aspect-square flex justify-center items-center md:max-w-80">
-          <img src="@/assets/images/flat-lay-plates.webp" alt="Artisan Profile" class="object-cover w-full h-full">
+          <img src="@/assets/images/banner1.webp" alt="Artisan Profile" class="object-cover w-full h-full">
         </div>
 
         <div class="aspect-square flex justify-center items-center md:max-w-80">
-          <img src="@/assets/images/tools-pottery-table.webp" alt="Artisan Products" class="object-cover w-full h-full">
+          <img src="@/assets/images/banner2.webp" alt="Artisan Products" class="object-cover w-full h-full">
         </div>
         <div class="aspect-square flex flex-col justify-center items-center bg-gray-50 text-black p-5 space-y-4">
           <p class="px-4 py-2 text-lg">PRODUITS DE L'ARTISAN</p>
