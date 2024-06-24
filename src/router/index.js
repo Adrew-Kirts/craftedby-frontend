@@ -110,4 +110,13 @@ const router = createRouter({
   ]
 })
 
+router.afterEach((to, from) => {
+  // Check if gtag is defined
+  if (typeof gtag === 'function') {
+    gtag('config', 'G-95M9KJFTMW', {
+      page_path: to.fullPath,
+    });
+  }
+});
+
 export default router
