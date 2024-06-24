@@ -4,13 +4,13 @@
 <!--    <TransitionGroup name="list" tag="div" class="w-full hidden md:flex">-->
     <div class="carousel w-full hidden md:block">
       <div v-show="currentSlide === 1" class="carousel-item w-full">
-        <img src="@/assets/images/flat-lay-plates.webp" alt="Flat lay plates" class="w-full slide-photo">
+        <img src="@/assets/images/banner1.webp" alt="Flat lay plates" class="w-full slide-photo">
       </div>
       <div v-show="currentSlide === 2" class="carousel-item  w-full">
-        <img src="@/assets/images/tools-pottery-table.webp" alt="Pottery tools" class="w-full slide-photo">
+        <img src="@/assets/images/banner2.webp" alt="Pottery tools" class="w-full slide-photo">
       </div>
       <div v-show="currentSlide === 3" class="carousel-item  w-full">
-        <img src="@/assets/images/carpenter-working-with-wood.webp" alt="Carpenter wood working" class="w-full slide-photo">
+        <img src="@/assets/images/banner3.webp" alt="Carpenter wood working" class="w-full slide-photo">
       </div>
     </div>
 <!--      </TransitionGroup>-->
