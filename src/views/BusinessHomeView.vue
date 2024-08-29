@@ -77,17 +77,19 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import api from '@/services/api.js'
-import { useUserStore } from '@/stores/user.js'
 
 onMounted(async () => {
   try {
     const allColors = await api.get('colors');
+    console.log('Colors:', allColors);
     colors.value = allColors.data;
 
     const response = await api.get('materials');
+    console.log('Materials:', response);
     materials.value = response.data;
 
     const allBusinesses = await api.get('businesses');
+    console.log('Businesses:', allBusinesses);
     businesses.value = allBusinesses.data;
 
   } catch (error) {
