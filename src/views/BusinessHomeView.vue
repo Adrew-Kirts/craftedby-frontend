@@ -3,8 +3,14 @@
     <h2 class="text-2xl font-bold mb-6 text-center">Add Product</h2>
     <form @submit.prevent="submitForm">
       <div class="form-group mb-4">
-        <label for="business_id" class="block text-sm font-medium text-gray-700">Business ID:</label>
-        <input id="business_id" v-model="product.business_id" type="text" required class="input input-bordered w-full"/>
+        <label for="business_id" class="block text-sm font-medium text-gray-700">Business</label>
+<!--        <input id="business_id" v-model="product.business_id" type="text" required class="input input-bordered w-full"/>-->
+        <select id="business_id" v-model="product.business_id" required class="input input-bordered w-full">
+          <option disabled value="">Please select one</option>
+          <option v-for="business in businesses" :key="business.id" :value="business.id">
+            {{ business.name }}
+          </option>
+        </select>
       </div>
       <div class="form-group mb-4">
         <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
@@ -44,8 +50,14 @@
         <input id="weight" v-model="product.weight" type="number" required step="0.10" class="input input-bordered w-full"/>
       </div>
       <div class="form-group mb-4">
-        <label for="color_id" class="block text-sm font-medium text-gray-700">Color ID:</label>
-        <input id="color_id" v-model="product.color_id" type="text" required class="input input-bordered w-full"/>
+        <label for="color_id" class="block text-sm font-medium text-gray-700">Color</label>
+<!--        <input id="color_id" v-model="product.color_id" type="text" required class="input input-bordered w-full"/>-->
+        <select id="color_id" v-model="product.color_id" required class="input input-bordered w-full">
+          <option disabled value="">Please select one</option>
+          <option v-for="color in colors" :key="color.id" :value="color.id">
+            {{ color.name }}
+          </option>
+        </select>
       </div>
       <div class="form-group mb-4">
         <label for="customisable" class="flex items-center space-x-2 text-sm font-medium text-gray-700">
@@ -65,28 +77,37 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import api from '@/services/api.js'
+import { useUserStore } from '@/stores/user.js'
 
 onMounted(async () => {
   try {
+    const allColors = await api.get('colors');
+    colors.value = allColors.data;
+
     const response = await api.get('materials');
-    console.log(response)
     materials.value = response.data;
+
+    const allBusinesses = await api.get('businesses');
+    businesses.value = allBusinesses.data;
+
   } catch (error) {
     console.error('Failed to fetch materials:', error.response);
   }
 });
 
 const materials = ref([]);
+const colors = ref([]);
+const businesses = ref([]);
 const product = ref({
-  business_id: '9bd858b8-845c-48ad-b8f0-d466ad6a96d5',
+  business_id: '',
   name: '',
   description: '',
   price: null,
   stock: null,
-  material_id: '9bd85560-2d87-4dc1-a5e5-9825b1125d46',
+  material_id: '',
   size: 'M',
   weight: null,
-  color_id: '9bd85560-186a-4a3e-9d09-74af204414fb',
+  color_id: '',
   customisable: false,
   image_path: 'assiette.png',
 });
