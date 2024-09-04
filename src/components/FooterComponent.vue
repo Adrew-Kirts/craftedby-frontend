@@ -8,13 +8,9 @@
         </div>
         <p class="mb-4">Faites place à l'originalité dans votre quotidien!</p>
 
-<!--        <RouterLink to="/new-business" class="btn btn-ghost btn-circle w-full md:w-auto">-->
-<!--          DEVENIR VENDEUR ARTISAN →-->
-<!--        </RouterLink>-->
-        <RouterLink to="/new-business" class="btn btn-ghost btn-circle w-full md:w-auto" style="padding: 20px;">
-          DEVENIR VENDEUR ARTISAN →
+        <RouterLink to="/new-business" class="btn btn-ghost btn-circle w-full md:w-auto p-5">
+          <button class="btn btn-outline">DEVENIR VENDEUR ARTISAN →</button>
         </RouterLink>
-
 
       </div>
       <div class="grid grid-cols-2 gap-8 mt-8 hidden md:grid">
