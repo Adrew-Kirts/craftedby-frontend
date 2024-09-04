@@ -68,7 +68,6 @@
             <CTAButtonPrimary customClass="btn btn-primary" text="Mettre à jour les informations"
                               @click="updateProfile"></CTAButtonPrimary>
           </div>
-
         </div>
       </div>
       <notification-component :key="notificationKey" :message="notificationMessage" :type="notificationType" />
@@ -102,40 +101,6 @@
         </div>
       </div>
     </div>
-
-
-    <!--    Order box-->
-    <!--    <div class="collapse border-2 rounded-none mt-2 collapse-arrow">-->
-    <!--      <input type="checkbox" />-->
-    <!--      <div class="collapse-title text-xl font-medium">-->
-    <!--        Commandes-->
-    <!--      </div>-->
-    <!--      <div class="collapse-content">-->
-    <!--        <div class="mt-8">-->
-    <!--          <p class="text-lg mb-4">Vos dernières commandes</p>-->
-    <!--          <div v-if="currentUser.user && currentUser.user.orders && currentUser.user.orders.length > 0"-->
-    <!--               class="space-y-4">-->
-    <!--            <router-link v-for="(order, index) in currentUser.user.orders" :key="index"-->
-    <!--                         :to="`/products`" class="block">-->
-    <!--&lt;!&ndash;                         :to="`/products/${order.product_id}`" class="block">&ndash;&gt;-->
-    <!--              <div class="p-4 shadow hover:bg-accent">-->
-    <!--                <p class="open-sans-regular text-lg">Numéro de commande: {{ order.order_number }}/5</p>-->
-    <!--&lt;!&ndash;                <p class="open-sans-regular text-gray-600">Prix: {{ order.total_tax_included }}</p>&ndash;&gt;-->
-    <!--                <pre>{{order}}</pre>-->
-    <!--                <p class="open-sans-regular text-gray-600">Prix: {{ order.products }}</p>-->
-    <!--                <div class="text-right text-sm open-sans-regular text-gray-500">Commandé le:-->
-    <!--                  {{ new Date(order.created_at).toLocaleDateString() }}-->
-    <!--                </div>-->
-    <!--              </div>-->
-    <!--            </router-link>-->
-    <!--          </div>-->
-    <!--          <div v-else class="p-4 bg-red-100 rounded-lg shadow text-center">-->
-    <!--            <p>Retrouvez vos commandes ici</p>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
-
     <div class="collapse border-2 rounded-none mt-2 collapse-arrow">
       <input type="checkbox" />
       <div class="collapse-title text-xl font-medium">
@@ -150,21 +115,6 @@
             <div class="join join-vertical w-full">
 
               <div v-for="(order, index) in currentUser.orders" :key="index">
-                <!--                         :to="`/products/${order.product_id}`" class="block">-->
-
-                <!--              <div class="collapse bg-base-200">-->
-                <!--                <input type="checkbox" class="peer" />-->
-                <!--                <div class="collapse-title bg-primary shadow hover:bg-accent text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">-->
-                <!--&lt;!&ndash;                  Click me to show/hide content&ndash;&gt;-->
-                <!--                  <p class="open-sans-regular text-lg">Numéro de commande : {{ order.order_number }}</p>-->
-
-                <!--                <div class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">-->
-                <!--&lt;!&ndash;                  <p>hello</p>&ndash;&gt;-->
-                <!--                  <pre>{{order.id}}</pre>-->
-                <!--                  <div class="text-right text-sm open-sans-regular text-gray-500">Commandé le:-->
-                <!--                    {{ new Date(order.created_at).toLocaleDateString() }}-->
-                <!--                  </div>-->
-
                 <div class="collapse collapse-arrow join-item border border-base-300">
                   <input checked="checked" name="my-accordion-4" type="radio" />
                   <div class="collapse-title text-xl font-medium">
@@ -175,62 +125,19 @@
                     <p class="open-sans-regular text-lg">Numéro de commande : {{ order.order_number }}</p>
                   </div>
                   <div class="collapse-content">
-                    <!--                        <p>hello</p>-->
                     <pre>{{ order }}</pre>
                     <div class="text-right text-sm open-sans-regular text-gray-500">Commandé le:
                       {{ new Date(order.created_at).toLocaleDateString() }}
                     </div>
                   </div>
                 </div>
-
-
               </div>
             </div>
           </div>
-
-
-          <!--              <div class="p-4 shadow hover:bg-accent">-->
-          <!--                <p class="open-sans-regular text-lg">Numéro de commande : {{ order.order_number }}</p>-->
-          <!--                <pre>{{order.id}}</pre>-->
-          <!--                <div class="text-right text-sm open-sans-regular text-gray-500">Commandé le:-->
-          <!--                  {{ new Date(order.created_at).toLocaleDateString() }}-->
-          <!--                </div>-->
-          <!--              </div>-->
-
         </div>
-
-
       </div>
-      <!--          <div v-else class="p-4 bg-red-100 rounded-lg shadow text-center">-->
-      <!--            <p>Retrouvez vos commandes ici</p>-->
-      <!--          </div>-->
     </div>
 
-    <!-- Orders Section -->
-    <!--    <div class="collapse border-2 rounded-none mt-2 collapse-arrow">-->
-    <!--      <input type="checkbox" />-->
-    <!--      <div class="collapse-title text-xl font-medium">-->
-    <!--        Commandes-->
-    <!--      </div>-->
-    <!--      <div class="collapse-content">-->
-    <!--        <p class="text-lg mb-4">Vos dernières commandes</p>-->
-    <!--        <div v-if="orders.length > 0" class="space-y-4">-->
-    <!--          <div v-for="order in orders" :key="order.id" class="p-4 shadow hover:bg-accent">-->
-    <!--            <div class="text-lg">Commande Numéro: {{ order.order_number }}</div>-->
-    <!--            <div>Date: {{ new Date(order.created_at).toLocaleDateString() }}</div>-->
-    <!--            <div>Total: {{ order.total_tax_included }} €</div>-->
-    <!--            <ul>-->
-    <!--              <li v-for="product in order.products" :key="product.id">-->
-    <!--                {{ product.name }} - {{ product.pivot.quantity }} x {{ product.price }} €-->
-    <!--              </li>-->
-    <!--            </ul>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--        <div v-else class="p-4 bg-red-100 rounded-lg shadow text-center">-->
-    <!--          <p>Aucune commande trouvée.</p>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
     <div class="flex justify-end gap-2 mt-10">
       <router-link :to="`/boutique`">
         <CTAButtonBase customClass="btn-secondary" text="Déconnexion" @click="logout"></CTAButtonBase>
@@ -240,14 +147,11 @@
           <CTAButtonPrimary customClass="btn-secondary" text="Ma page boutique"></CTAButtonPrimary>
         </router-link>
 
-
+      <router-link v-if="checkAdminRights()" :to="`/admin`">
+        <CTAButtonPrimary customClass="btn-secondary" text="Admin"></CTAButtonPrimary>
+      </router-link>
     </div>
-
-
   </div>
-
-  <!--    </div>-->
-  <!--  </div>-->
 </template>
 
 <script setup>
@@ -258,7 +162,7 @@ import api from '@/services/api.js'
 import CTAButtonPrimary from '@/components/CTAButtonPrimary.vue'
 import router from '@/router/index.js'
 import NotificationComponent from '@/components/NotificationComponent.vue'
-import { checkBusinessOwnerRights } from '@/router/middleware.js'
+import { checkAdminRights, checkBusinessOwnerRights } from '@/router/middleware.js'
 
 const user = useUserStore()
 const userObject = user.userObject
@@ -283,19 +187,6 @@ onMounted(() => {
 })
 
 const currentUser = ref([])
-
-// const getCurrentUSer = async () => {
-//   try {
-//     const response = await api.get(`/users/${userObject.id}`)
-//     if (response.data) {
-//       currentUser.value = response.data.user
-//       // user.storeOnlyUser(currentUser)
-//       // console.log(currentUser)
-//     }
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
 
 const getCurrentUSer = async () => {
   currentUser.value = await user.getCurrentUser(userObject)
