@@ -1,5 +1,5 @@
 <template>
-  <div class="craftedby-intro bg-gray-100 p-6 rounded-lg mb-8">
+  <div class="craftedby-intro bg-gray-100 p-6 rounded-lg mb-8 max-w-5xl mx-auto">
     <h1 class="text-3xl font-bold mb-4">Bienvenue sur CraftedBy</h1>
     <p class="text-lg">
       CraftedBy est une plateforme dédiée à la mise en valeur des créations artisanales uniques. Nous proposons une expérience utilisateur fluide et intuitive,
@@ -8,8 +8,7 @@
     </p>
   </div>
 
-
-  <div class="about p-8">
+  <div class="about p-8 max-w-5xl mx-auto bg-white shadow-lg rounded-lg">
     <h1 class="text-4xl font-bold mb-6">Politique de Confidentialité et RGPD</h1>
     <h2 class="text-2xl font-semibold mb-4">Traitement des Données Personnelles</h2>
 
@@ -98,8 +97,12 @@
 
 <style scoped>
 .about {
-  background-color: #f9fafb; /* Very light grey */
+  background-color: #f9fafb;
   border-radius: 12px;
+}
+
+.craftedby-intro {
+  background-color: #f9fafb;
 }
 </style>
 
