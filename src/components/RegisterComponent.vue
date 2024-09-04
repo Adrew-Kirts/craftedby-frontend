@@ -70,7 +70,14 @@
       <p v-if="password !== password_confirmation && password_confirmation.length > 0"
          class="text-red-500 text-sm mt-2">Les mots de passe ne correspondent pas.</p>
     </div>
-    <button class="btn btn-primary rounded-none text-white open-sans-regular mt-4 w-full" type="submit">S'enregistrer
+    <label class="cursor-pointer flex items-center">
+      <input v-model="acceptTerms" type="checkbox" class="checkbox checkbox-primary rounded-none mr-2" required />
+      <span>
+          J'accepte les
+          <RouterLink to="/about" class="text-primary underline">conditions générales</RouterLink>.
+        </span>
+    </label>
+    <button :disabled="!acceptTerms" class="btn btn-primary rounded-none text-white open-sans-regular mt-4 w-full" type="submit">S'enregistrer
     </button>
   </form>
 </template>
@@ -92,6 +99,8 @@ const phone_number = ref('')
 const email = ref('')
 const password = ref('')
 const password_confirmation = ref('')
+
+const acceptTerms = ref(false)
 
 const register = async () => {
   try {

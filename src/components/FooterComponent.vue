@@ -1,93 +1,37 @@
-<!--<template>-->
-<!--  <footer class="footer footer-center p-4 bg-black text-base-100 mt-20">-->
-<!--    &lt;!&ndash; Logo and Button - &ndash;&gt;-->
-<!--    <div class="flex justify-between w-full max-w-6xl mx-auto hidden md:flex">-->
-<!--      <div class="flex flex-col items-start">-->
-<!--        <div class="flex flex-row">-->
-<!--          <img src="../assets/CB_logo.svg" alt="CRAFTEDBY Logo" class="mb-2">-->
-<!--          <p class="btn btn-ghost normal-case text-xl logo-text">CraftedBy</p>-->
-<!--        </div>-->
-<!--        <p>Lorem ipsum dolor sit amet conse bolli tetur</p>-->
-
-<!--        <RouterLink to="/new-business" class="btn btn-ghost btn-circle">-->
-<!--          <button class="btn btn-outline mt-2">DEVENIR VENDEUR ARTISAN →</button>-->
-<!--        </RouterLink>-->
-
-<!--      </div>-->
-<!--      <div class="grid grid-cols-2 gap-8 mt-8 hidden md:grid">-->
-<!--        <div>-->
-<!--          <h3 class="font-bold uppercase mb-4">A propos</h3>-->
-<!--          <ul>-->
-<!--            <li>Notre histoire</li>-->
-<!--            <li>Notre équipe</li>-->
-<!--            <li>Carrières</li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--          <h3 class="font-bold uppercase mb-4">Services</h3>-->
-<!--          <ul>-->
-<!--            <li>Personnalisation</li>-->
-<!--            <li>Support 24/7</li>-->
-<!--            <li>Livraison internationale</li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    &lt;!&ndash; About and Services &ndash;&gt;-->
-<!--    <div class="grid grid-cols-2 gap-8 mt-8 md:hidden">-->
-<!--      <div>-->
-<!--        <h3 class="font-bold uppercase mb-4">A propos</h3>-->
-<!--        <ul>-->
-<!--          <li>Notre histoire</li>-->
-<!--          <li>Notre équipe</li>-->
-<!--          <li>Carrières</li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--      <div>-->
-<!--        <h3 class="font-bold uppercase mb-4">Services</h3>-->
-<!--        <ul>-->
-<!--          <li>Personnalisation</li>-->
-<!--          <li>Support 24/7</li>-->
-<!--          <li>Livraison internationale</li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    &lt;!&ndash; Copyright Text - &ndash;&gt;-->
-<!--    <router-link to="/admin" class="mt-8 md:mt-2">© 2024 CraftedBy Inc. Tous droits réservés.</router-link>-->
-<!--  </footer>-->
-<!--</template>-->
-
 <template>
   <footer class="footer footer-center p-4 bg-black text-white mt-20">
     <div class="flex flex-col md:flex-row justify-between w-full max-w-6xl mx-auto items-start">
       <div class="flex flex-col items-start">
-        <div class="flex items-center mb-2"> <!-- Center align logo and text -->
-          <img src="../assets/CB_logo.svg" alt="CRAFTEDBY Logo" class="mr-2"> <!-- Right margin to the logo -->
+        <div class="flex items-center mb-2">
+          <img src="../assets/CB_logo.svg" alt="CRAFTEDBY Logo" class="mr-2">
           <p class="btn btn-ghost normal-case text-xl logo-text">CraftedBy</p>
         </div>
-        <p class="mb-4">Lorem ipsum dolor sit amet conse bolli tetur conjo</p>
+        <p class="mb-4">Faites place à l'originalité dans votre quotidien!</p>
 
-        <RouterLink to="/new-business" class="btn btn-ghost btn-circle w-full md:w-auto">
-          <button class="btn btn-outline">DEVENIR VENDEUR ARTISAN →</button>
+<!--        <RouterLink to="/new-business" class="btn btn-ghost btn-circle w-full md:w-auto">-->
+<!--          DEVENIR VENDEUR ARTISAN →-->
+<!--        </RouterLink>-->
+        <RouterLink to="/new-business" class="btn btn-ghost btn-circle w-full md:w-auto" style="padding: 20px;">
+          DEVENIR VENDEUR ARTISAN →
         </RouterLink>
+
+
       </div>
       <div class="grid grid-cols-2 gap-8 mt-8 hidden md:grid">
         <div>
           <h3 class="font-bold uppercase mb-4">A propos</h3>
           <ul>
-            <li>Notre histoire</li>
-            <li>Notre équipe</li>
-            <li>Carrières</li>
+            <li><a href="/notre-histoire">Notre histoire</a></li>
+            <li><a href="/notre-equipe">Notre équipe</a></li>
+            <li><a href="/carrieres">Carrières</a></li>
           </ul>
         </div>
         <div>
           <h3 class="font-bold uppercase mb-4">Services</h3>
           <ul>
-            <li>Personnalisation</li>
-            <li>Support 24/7</li>
-            <li>Livraison internationale</li>
+            <li><a href="/personnalisation">Personnalisation</a></li>
+            <li><a href="/support">Support 24/7</a></li>
+            <li><a href="/livraison-internationale">Livraison internationale</a></li>
           </ul>
         </div>
       </div>
@@ -97,17 +41,17 @@
       <div>
         <h3 class="font-bold uppercase mb-4">A propos</h3>
         <ul>
-          <li>Notre histoire</li>
-          <li>Notre équipe</li>
-          <li>Carrières</li>
+          <li><a href="/notre-histoire">Notre histoire</a></li>
+          <li><a href="/notre-equipe">Notre équipe</a></li>
+          <li><a href="/carrieres">Carrières</a></li>
         </ul>
       </div>
       <div>
         <h3 class="font-bold uppercase mb-4">Services</h3>
         <ul>
-          <li>Personnalisation</li>
-          <li>Support 24/7</li>
-          <li>Livraison internationale</li>
+          <li><a href="/personnalisation">Personnalisation</a></li>
+          <li><a href="/support">Support 24/7</a></li>
+          <li><a href="/livraison-internationale">Livraison internationale</a></li>
         </ul>
       </div>
     </div>
