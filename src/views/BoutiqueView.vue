@@ -47,9 +47,9 @@
             </figure>
 
             <div class="card-body pl-2 line-clamp-4">
-              <h2 class="card-title open-sans-semibold uppercase text-lg pt-3">{{ product.name }}</h2>
-              <p class="price-text">€ {{ product.price }}</p>
-              <p class="description pt-5">{{ product.description }}</p>
+              <h2 aria-label="nom du produit" class="card-title open-sans-semibold uppercase text-lg pt-3">{{ product.name }}</h2>
+              <p aria-label="prix" class="price-text">€ {{ product.price }}</p>
+              <p aria-label="description" class="description pt-5">{{ product.description }}</p>
             </div>
           </router-link>
           <div>
