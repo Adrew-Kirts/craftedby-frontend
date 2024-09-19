@@ -8,16 +8,6 @@ export function redirectToLogin(to) {
   }
 }
 
-// export async function redirectToLogin(to) {
-//   const userStore = useUserStore();
-//   if (!userStore.userObject) {
-//     const isAuthenticated = await userStore.fetchCurrentUser();
-//     if (!isAuthenticated) {
-//       return `/login?to=${to.name}`;
-//     }
-//   }
-// }
-
 export function checkAdminRights() {
   const userStore = useUserStore()
 
