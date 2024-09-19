@@ -70,7 +70,7 @@
           </div>
         </div>
       </div>
-      <notification-component :key="notificationKey" :message="notificationMessage" :type="notificationType" />
+      <notification-component :trigger="notificationTrigger" :message="notificationMessage" :type="notificationType" />
 
     </div>
     <!--Review collapse box-->
@@ -170,7 +170,7 @@ const changedFields = {}
 
 const notificationMessage = ref('')
 const notificationType = ref('success')
-const notificationKey = ref(0);
+const notificationTrigger = ref(0);
 
 const markFieldAsChanged = (field) => {
   changedFields[field] = true
@@ -203,13 +203,16 @@ const updateProfile = async () => {
 
     const response = await api.patch(`/users/${userObject.id}`, updatedData)
     if (response.data) {
-      notificationMessage.value = `Informations mis à jour`
+      notificationMessage.value = `Informations mises à jour`
       notificationType.value = 'success'
-      notificationKey.value++
+      notificationTrigger.value++
       user.storeUser(response.data.user)
     }
   } catch (error) {
     console.error(error)
+    notificationMessage.value = `Erreur lors de la mise à jour des informations`
+    notificationType.value = 'error'
+    notificationTrigger.value++
   }
 }
 
