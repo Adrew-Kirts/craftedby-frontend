@@ -14,8 +14,7 @@ import { ref, computed, watch, nextTick } from 'vue'
 const props = defineProps({
   type: String,
   message: String,
-  duration: { type: Number, default: 800 },
-  trigger: Number
+  duration: { type: Number, default: 800 }
 })
 
 const visible = ref(false)
@@ -39,17 +38,16 @@ function autoClose() {
   }, props.duration)
 }
 
-watch(
-  () => props.trigger,
-  async () => {
-    if (props.message !== '') {
-      visible.value = false
-      await nextTick()
-      key.value++
-      visible.value = true
-    }
+watch(() => props.message, async (newVal) => {
+  if (newVal !== '') {
+    visible.value = false
+    await nextTick()
+    key.value++
+    visible.value = true
   }
-)
+})
+
+
 </script>
 
 <style scoped>
