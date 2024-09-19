@@ -143,13 +143,13 @@
         <CTAButtonBase customClass="btn-secondary" text="Déconnexion" @click="logout"></CTAButtonBase>
       </router-link>
 
-        <router-link v-if="checkBusinessOwnerRights()" :to="`/business-home`">
-          <CTAButtonPrimary customClass="btn-secondary" text="Ma page boutique"></CTAButtonPrimary>
-        </router-link>
+<!--        <router-link v-if="checkBusinessOwnerRights()" :to="`/business-home`">-->
+<!--          <CTAButtonPrimary customClass="btn-secondary" text="Ma page boutique"></CTAButtonPrimary>-->
+<!--        </router-link>-->
 
-      <router-link v-if="checkAdminRights()" :to="`/admin`">
-        <CTAButtonPrimary customClass="btn-secondary" text="Admin"></CTAButtonPrimary>
-      </router-link>
+<!--      <router-link v-if="checkAdminRights()" :to="`/admin`">-->
+<!--        <CTAButtonPrimary customClass="btn-secondary" text="Admin"></CTAButtonPrimary>-->
+<!--      </router-link>-->
     </div>
   </div>
 </template>

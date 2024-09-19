@@ -106,6 +106,7 @@ export const useUserStore = defineStore('user', {
       this.storedUser = JSON.stringify(user)
       this.userObject = user
       localStorage.setItem('user', JSON.stringify(user))
+      console.log('User after storeUser:', useUserStore().userObject)
     },
 
     storeToken(token) {
