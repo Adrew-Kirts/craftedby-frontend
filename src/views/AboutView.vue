@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="container mx-auto px-4 py-8 flex flex-col">
     <section class="craftedby-intro bg-gray-100 p-6 rounded-lg mb-8">
       <h1 class="text-3xl font-bold mb-4 text-center">Bienvenue sur CraftedBy</h1>
       <p class="text-lg text-justify">
@@ -12,7 +12,7 @@
       </p>
     </section>
 
-    <section class="about bg-white shadow-lg rounded-lg p-6">
+    <section class="about bg-white shadow-lg rounded-lg p-6 flex flex-col">
       <h1 class="text-4xl font-bold mb-6 text-center">Politique de Confidentialité et RGPD</h1>
       <h2 class="text-2xl font-semibold mb-4">Traitement des Données Personnelles</h2>
 
