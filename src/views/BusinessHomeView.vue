@@ -111,14 +111,14 @@ const product = ref({
   weight: null,
   color_id: '',
   customisable: false,
-  image_path: 'assiette.png',
+  image_path: 'image6.png',
 });
 
 const submitForm = async () => {
   try {
     const response = await api.post('products', product.value);
     console.log('Product Created:', response.data);
-    alert('Product added successfully!');
+    alert('Produit rajouté avec succès !');
     resetForm();
   } catch (error) {
     console.error('There was an error posting the product:', error.response);

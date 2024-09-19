@@ -121,7 +121,7 @@ const register = async () => {
     }
 
     await userStore.signUp(userData)
-    alert('User successfully created.')
+    alert('Utilisateur créé avec succès')
     await router.push('/boutique')
     await router.go(0)
   } catch (error) {

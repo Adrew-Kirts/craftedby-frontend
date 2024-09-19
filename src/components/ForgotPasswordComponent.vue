@@ -22,7 +22,7 @@ const userStore = useUserStore();
 
 const sendEmail = async () => {
   await userStore.passwordReset(email.value)
-  alert('un mail a été envoyé pour changer votre mot de passe')
+  alert('Un mail a été envoyé pour changer votre mot de passe')
   await router.push('/boutique');
 };
 </script>

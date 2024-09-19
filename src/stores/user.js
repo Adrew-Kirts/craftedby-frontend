@@ -27,7 +27,6 @@ export const useUserStore = defineStore('user', {
           this.storeUser(res.data.user);
           this.storeToken(res.data.token);
           console.log(response);
-          console.log('User after login:', useUserStore().userObject);
         } catch (error) {
           console.error('Login failed:', error);
         }
