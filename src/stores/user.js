@@ -7,6 +7,7 @@ export const useUserStore = defineStore('user', {
     token: localStorage.getItem('token') || null,
     storedUser: localStorage.getItem('user') || null,
     userObject: JSON.parse(localStorage.getItem('user') || 'null')
+
   }),
 
   actions: {
@@ -34,6 +35,7 @@ export const useUserStore = defineStore('user', {
           this.storeUser(res.data.user);
           this.storeToken(res.data.token);
           console.log(response);
+          console.log('User after login:', useUserStore().userObject);
         } catch (error) {
           console.error('Login failed:', error);
         }

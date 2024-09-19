@@ -176,11 +176,11 @@ const markFieldAsChanged = (field) => {
   changedFields[field] = true
 }
 
-const getFullImagePath = (imagePath) => {
-  const apiBaseURL = 'http://localhost:8000/images/products/'
-  return `${apiBaseURL}${imagePath}`
-}
-const orders = ref([])
+// const getFullImagePath = (imagePath) => {
+//   const apiBaseURL = 'http://localhost:8000/images/products/'
+//   return `${apiBaseURL}${imagePath}`
+// }
+// const orders = ref([])
 
 onMounted(() => {
   getCurrentUSer()
