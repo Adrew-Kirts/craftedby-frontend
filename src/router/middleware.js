@@ -13,7 +13,6 @@ export function checkAdminRights() {
 
   const isAdmin = userStore.userObject.role.some(role => role.name === 'admin')
   if (!isAdmin) {
-    // return `/login?to=${to.name}`;
     return router.push('/login')
   }
 }
