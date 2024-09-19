@@ -15,7 +15,7 @@
         <!-- Image -->
         <div class="product-image">
           <figure>
-            <img :src="`${product.image_path}`" alt="Product image" class="h-auto rounded-lg shadow-md">
+            <img :src="`https://fabriquepar.com/${product.image_path}`" alt="Product image" class="h-auto rounded-lg shadow-md">
           </figure>
         </div>
 
@@ -53,11 +53,11 @@
 
       <!-- Business Info Section -->
       <div class="business-info bg-gray-100 p-4 mt-8 rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold mb-3 bg-secondary">Informations sur l'artisan</h2>
+        <h2 class="text-2xl font-semibold mb-3 text-secondary">Informations sur l'artisan</h2>
 
         <!-- Business name with router link -->
         <p class="text-lg mb-2">
-          <router-link :to="`/businesses/${product.business.id}`" class="text-primary hover:underline font-bold">
+          <router-link :to="`/businesses/${product.business.id}`" class="hover:underline font-bold">
             {{ product.business.name }}
           </router-link>
         </p>
