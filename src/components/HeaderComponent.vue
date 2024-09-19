@@ -66,12 +66,12 @@
       </div>
 
 <!--      Profile button-->
-<!--      <RouterLink class="btn btn-ghost btn-circle" to="/profile">-->
-<!--        <img alt="Icon profile" src="../assets/icons/avatar.svg">-->
-<!--      </RouterLink>-->
-      <RouterLink class="btn btn-ghost btn-circle" :to="{ name: 'profile' }">
+      <RouterLink class="btn btn-ghost btn-circle" to="/profile">
         <img alt="Icon profile" src="../assets/icons/avatar.svg">
       </RouterLink>
+<!--      <RouterLink class="btn btn-ghost btn-circle" :to="{ name: 'profile' }">-->
+<!--        <img alt="Icon profile" src="../assets/icons/avatar.svg">-->
+<!--      </RouterLink>-->
 
 <!--      Cart button-->
       <div class="relative">
