@@ -1,10 +1,22 @@
 import { useUserStore } from '@/stores/user.js'
 import router from '@/router/index.js'
 
-export function redirectToLogin(to) {
+// export function redirectToLogin(to, from,  next) {
+//   const userStore = useUserStore()
+//   if (!userStore.userObject) {
+//     return `/login?to=${to.name}`
+//   }
+//   else {
+//     next()
+//   }
+// }
+
+export function redirectToLogin(to, from, next) {
   const userStore = useUserStore()
   if (!userStore.userObject) {
-    return `/login?to=${to.name}`
+    next(`/login?to=${to.name}`)
+  } else {
+    next()
   }
 }
 
