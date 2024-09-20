@@ -5,7 +5,8 @@ export const useUserStore = defineStore('user', {
   state: () => ({
     token: localStorage.getItem('token') || null,
     storedUser: localStorage.getItem('user') || null,
-    userObject: JSON.parse(localStorage.getItem('user') || 'null')
+    userObject: JSON.parse(localStorage.getItem('user') || 'null'),
+    hasAcceptedCookies: JSON.parse(localStorage.getItem('hasAcceptedCookies') || 'false')
   }),
 
   actions: {
@@ -62,6 +63,11 @@ export const useUserStore = defineStore('user', {
     storeToken(token) {
       this.token = token
       localStorage.setItem('token', token)
+    },
+
+    acceptCookies() {
+      this.hasAcceptedCookies = true;
+      localStorage.setItem('hasAcceptedCookies', JSON.stringify(true));
     },
 
     logout() {

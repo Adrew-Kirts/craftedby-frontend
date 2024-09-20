@@ -7,8 +7,14 @@
       <div class="product-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mx-5 md:mx-0"
            v-if="slicedCustomProducts && slicedCustomProducts.length">
         <div v-for="product in slicedCustomProducts" :key="product.id" class="card w-full">
+<!--          <router-link :to="`/products/${product.id}`">-->
+<!--            <figure><img src="/src/assets/images/assiette.png" alt="Product image" class="object-cover w-full"></figure>-->
+
           <router-link :to="`/products/${product.id}`">
-            <figure><img src="/src/assets/images/assiette.png" alt="Product image" class="object-cover w-full"></figure>
+            <figure>
+              <img :src="getFullImagePath(product.image_path)" :alt="`Image du produit ${product.name}`" class="object-cover h-80 w-72" />
+            </figure>
+
             <div class="card-body pl-2">
               <h2 class="card-title open-sans-semibold uppercase">{{ product.name }}</h2>
               <p class="price-text pb-3">€ {{ product.price }}</p>
@@ -56,12 +62,11 @@
           <!-- Product Cards for Random Products -->
           <div v-for="product in randomProducts" :key="product.id" class="card w-full">
             <router-link :to="`/products/${product.id}`">
-              <figure><img src="/src/assets/images/assiette.png" alt="Product image" class="object-cover w-full"></figure>
+<!--              <figure><img src="/src/assets/images/assiette.png" alt="Product image" class="object-cover w-full"></figure>-->
 
-              <!--            put back to get img from backend:-->
-              <!--            <figure>-->
-              <!--              <img :src="getFullImagePath(product.image_path)" alt="Product image" class="object-cover w-full" />-->
-              <!--            </figure>-->
+              <figure>
+                <img :src="getFullImagePath(product.image_path)" :alt="`Image du produit ${product.name}`" class="object-cover h-80 w-72" />
+              </figure>
 
               <div class="card-body pl-2">
                 <h2 class="card-title open-sans-semibold uppercase">{{ product.name }}</h2>
@@ -117,6 +122,11 @@ const randomProducts = computed(() => allProducts.value.slice(0, 4))
 const slicedCustomProducts = computed(() => customisableProducts.value.slice(0, 8))
 
 const cartStore = useCartStore()
+
+function getFullImagePath(imagePath) {
+  const apiBaseURL = `${import.meta.env.VITE_IMAGE_BASE_URL}/`
+  return `${apiBaseURL}${imagePath}`
+}
 
 </script>
 

@@ -99,8 +99,34 @@
           </tbody>
         </table>
       </div>
+      <!-- Ajout des mentions obligatoires -->
+      <section class="mentions bg-gray-50 p-4 rounded-lg mt-6">
+        <h3 class="text-xl font-semibold mb-4">Vos droits et informations supplémentaires</h3>
+        <p class="mb-4">
+          Conformément à la réglementation en vigueur, vous disposez des droits suivants : droit d'accès, de rectification,
+          à l'effacement, à la portabilité, à la limitation du traitement et d'opposition au traitement de vos données personnelles.
+          Vous pouvez exercer ces droits en nous contactant à l’adresse suivante : <a href="mailto:admin@craftedby.com" class="text-blue-600 underline">admin@craftedby.com</a>.
+          Vous avez également le droit de retirer votre consentement à tout moment.
+        </p>
+        <p class="mb-4">
+          Vos données personnelles sont conservées pour une durée nécessaire à la réalisation des finalités pour lesquelles elles
+          ont été collectées, et sont stockées sur des serveurs situés en Europe.
+        </p>
+        <p class="mb-4">
+          Si vous avez des questions concernant notre politique de confidentialité ou si vous souhaitez déposer une plainte,
+          vous pouvez également nous écrire à l'adresse suivante : <strong>1 Esplanade Augustin, Rue Eugène Aussedat, Annecy</strong>.
+        </p>
+        <p class="mb-4">
+          En cas de violation de vos données personnelles, nous nous engageons à en informer les autorités compétentes et à
+          prendre toutes les mesures nécessaires pour minimiser les impacts potentiels.
+        </p>
+        <p class="mb-4">
+          Vous avez également la possibilité de déposer une réclamation auprès de la CNIL si vous estimez que vos droits ne sont pas respectés.
+        </p>
+      </section>
     </section>
   </div>
+
 </template>
 
 <style scoped>
