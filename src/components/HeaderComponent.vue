@@ -11,19 +11,34 @@
           <img alt="Vue logo" class="h-10 w-10" src="@/assets/CB_logo.svg" />
           <a class="btn btn-ghost normal-case text-xl logo-text">CraftedBy</a>
         </div>
-        <ul v-if="showMenuDropdown" class="text-xl menu absolute mt-3 p-2 shadow bg-base-100 w-52" tabindex="0">
+        <ul v-if="showMenuDropdown" class="text-lg menu absolute mt-3 p-2 shadow-lg bg-white w-48" tabindex="0">
           <!-- Menu items -->
-          <li>
-            <RouterLink to="/">Accueil</RouterLink>
+          <li class="border-b border-gray-200 last:border-b-0">
+            <div class="flex items-center space-x-4 py-2">
+              <RouterLink class="block flex-grow text-center" to="/">Accueil</RouterLink>
+              <button class="btn btn-ghost btn-xs text-primary">→</button>
+            </div>
           </li>
-          <li>
-            <Router-link to="/boutique">Boutique</Router-link>
+          <li class="border-b border-gray-200 last:border-b-0">
+            <div class="flex items-center space-x-4 py-2">
+              <RouterLink class="block flex-grow text-center" to="/boutique">Boutique
+              </RouterLink>
+              <button class="btn btn-ghost btn-xs text-primary">→</button>
+            </div>
           </li>
-          <li>
-            <RouterLink to="/about">A propos</RouterLink>
+          <li class="border-b border-gray-200 last:border-b-0">
+            <div class="flex items-center space-x-4 py-2">
+              <RouterLink class="block flex-grow text-center" to="/about">A propos
+              </RouterLink>
+              <button class="btn btn-ghost btn-xs text-primary">→</button>
+            </div>
           </li>
-          <li>
-            <RouterLink to="/contact">Contact</RouterLink>
+          <li class="border-b border-gray-200 last:border-b-0">
+            <div class="flex items-center space-x-4 py-2">
+              <RouterLink class="block flex-grow text-center" to="/contact">Contact
+              </RouterLink>
+              <button class="btn btn-ghost btn-xs text-primary">→</button>
+            </div>
           </li>
         </ul>
       </div>
