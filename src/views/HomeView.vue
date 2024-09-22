@@ -34,15 +34,15 @@
       <div class="grid grid-cols-1 md:grid-cols-2">
 
         <div class="aspect-square flex flex-col justify-center items-center bg-gray-50 text-black p-5 space-y-4">
-          <p class="px-4 py-2 text-lg">PROFIL ARTISAN</p>
+          <p class="px-4 py-2 text-lg">ARTISAN A LA UNE</p>
           <p class="px-4 py-2">Lorem ipsum dolor sit amet...</p>
           <a href="#" class="px-4 py-2 open-sans-regular underline text-sm">CONTINUER LECTURE</a>
         </div>
-        <div class="aspect-square flex justify-center items-center md:max-w-80">
+        <div class="aspect-square flex justify-center items-center md:max-w-md">
           <img src="@/assets/images/banner1.webp" alt="Artisan Profile" class="object-cover w-full h-full">
         </div>
 
-        <div class="aspect-square flex justify-center items-center md:max-w-80">
+        <div class="aspect-square flex justify-center items-center md:max-w-md">
           <img src="@/assets/images/banner2.webp" alt="Artisan Products" class="object-cover w-full h-full">
         </div>
         <div class="aspect-square flex flex-col justify-center items-center bg-gray-50 text-black p-5 space-y-4">

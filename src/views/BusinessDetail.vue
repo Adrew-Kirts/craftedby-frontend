@@ -40,26 +40,26 @@
       </div>
 
       <!-- Product List -->
-<!--      <div v-if="products.length > 0" class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">-->
-<!--        <div v-for="product in products" :key="product.id" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg">-->
-<!--          &lt;!&ndash; Product Image &ndash;&gt;-->
-<!--          <figure class="mb-4">-->
-<!--            <img :src="`/src/assets/images/${product.image_path}`" alt="Product image" class="h-auto rounded-lg">-->
-<!--          </figure>-->
+      <div v-if="products.length > 0" class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div v-for="product in products" :key="product.id" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg">
+          <!-- Product Image -->
+          <figure class="mb-4">
+            <img :src="`/src/assets/images/${product.image_path}`" alt="Product image" class="h-auto rounded-lg">
+          </figure>
 
-<!--          &lt;!&ndash; Product Info &ndash;&gt;-->
-<!--          <h2 class="text-xl font-semibold mb-2">{{ product.name }}</h2>-->
-<!--          <p class="text-gray-700 mb-2">€{{ product.price }}</p>-->
+          <!-- Product Info -->
+          <h2 class="text-xl font-semibold mb-2">{{ product.name }}</h2>
+          <p class="text-gray-700 mb-2">€{{ product.price }}</p>
 
-<!--          &lt;!&ndash; View Product Button &ndash;&gt;-->
-<!--          <router-link :to="`/product/${product.id}`" class="btn btn-primary">Voir produit</router-link>-->
-<!--        </div>-->
-<!--      </div>-->
+          <!-- View Product Button -->
+          <router-link :to="`/product/${product.id}`" class="btn btn-primary">Voir produit</router-link>
+        </div>
+      </div>
 
       <!-- No products message -->
-<!--      <div v-else class="text-center">-->
-<!--        <p class="text-lg">Cette entreprise n'a pas encore de produits à afficher.</p>-->
-<!--      </div>-->
+      <div v-else class="text-center">
+        <p class="text-lg">Cette entreprise n'a pas encore de produits à afficher.</p>
+      </div>
     </div>
   </div>
 </template>
