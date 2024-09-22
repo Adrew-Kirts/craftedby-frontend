@@ -3,7 +3,7 @@
     <BackButtonComponent></BackButtonComponent>
 
     <div v-if="loading" class="flex justify-center items-center h-screen loading loading-infinity loading-lg">
-      Loading...
+      Chargement...
     </div>
 
     <div v-else-if="error" class="text-red-500 text-center mt-4">

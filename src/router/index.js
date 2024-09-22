@@ -17,6 +17,7 @@ import BusinessHomeView from '@/views/BusinessHomeView.vue'
 import CartOverviewComponent from '@/components/CartOverviewComponent.vue'
 import AboutView from '@/views/AboutView.vue'
 import BusinessDetail from '@/views/BusinessDetail.vue'
+import PageNotFoundView from '@/views/PageNotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -110,6 +111,11 @@ const router = createRouter({
       path: '/business/:id',
       name: 'businessDetail',
       component: BusinessDetail,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: PageNotFoundView
     }
   ]
 })
