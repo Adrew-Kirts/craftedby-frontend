@@ -72,7 +72,7 @@ import BackButtonComponent from '@/components/BackButtonComponent.vue';
 
 const route = useRoute();
 const business = ref(null);
-// const products = ref([]);
+const products = ref([]);
 const loading = ref(true);
 const error = ref(null);
 
@@ -86,6 +86,13 @@ onMounted(async () => {
     // Fetch products for this business
     // const productsResponse = await api.get(`businesses/${route.params.id}/products`);
     // products.value = productsResponse.data.products;
+    const productsResponse = await api.get('products', {
+      params: {
+        businessId: businessResponse.data.business.id,
+      },
+    });
+    products.value = productsResponse.data.products;
+
   } catch (err) {
     console.error("Failed to fetch business or product details:", err);
     error.value = "Failed to load business details.";

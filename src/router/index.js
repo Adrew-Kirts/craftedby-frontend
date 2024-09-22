@@ -108,7 +108,7 @@ const router = createRouter({
       beforeEnter: checkBusinessOwnerRights
     },
     {
-      path: '/business/:id',
+      path: '/businesses/:id',
       name: 'businessDetail',
       component: BusinessDetail,
     },
