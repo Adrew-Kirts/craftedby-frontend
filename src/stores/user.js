@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import api from '@/services/api.js'
+import router from '@/router/index.js'
 
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -68,6 +69,7 @@ export const useUserStore = defineStore('user', {
     acceptCookies() {
       this.hasAcceptedCookies = true;
       localStorage.setItem('hasAcceptedCookies', JSON.stringify(true));
+      router.go(0);
     },
 
     logout() {
