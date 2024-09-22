@@ -34,13 +34,13 @@
         </div>
 
 <!--        biography-->
-        <div class="text-center mb-8">
+        <div v-if="business.biography" class="text-center mb-8">
           <p class="text-lg">Biographie</p>
           <p class="text-lg">{{ business.biography }}</p>
         </div>
 
 <!--          history-->
-          <div>
+          <div v-if="business.history">
             <p class="text-lg">Historique</p>
             <p class="text-lg">{{ business.history }}</p>
           </div>
@@ -56,7 +56,8 @@
         <div v-for="product in products" :key="product.id" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg">
           <!-- Product Image -->
           <figure class="mb-4">
-            <img :src="`/src/assets/images/${product.image_path}`" alt="Product image" class="h-auto rounded-lg">
+<!--            <img :src="`/src/assets/images/${product.image_path}`" alt="Product image" class="h-auto rounded-lg">-->
+            <img :src="getFullImagePath(product.image_path)" alt="Product image" class="h-auto rounded-lg">
           </figure>
 
           <!-- Product Info -->
@@ -64,7 +65,7 @@
           <p class="text-gray-700 mb-2">€{{ product.price }}</p>
 
           <!-- View Product Button -->
-          <router-link :to="`/product/${product.id}`" class="btn btn-primary">Voir produit</router-link>
+          <router-link :to="`/products/${product.id}`" class="btn btn-primary">Voir produit</router-link>
         </div>
       </div>
 
@@ -112,6 +113,11 @@ onMounted(async () => {
     loading.value = false;
   }
 });
+
+function getFullImagePath(imagePath) {
+  const apiBaseURL = `${import.meta.env.VITE_IMAGE_BASE_URL}/`
+  return `${apiBaseURL}${imagePath}`
+}
 </script>
 
 <style scoped>
