@@ -33,6 +33,18 @@
           </p>
         </div>
 
+<!--        biography-->
+        <div class="text-center mb-8">
+          <p class="text-lg">Biographie</p>
+          <p class="text-lg">{{ business.biography }}</p>
+        </div>
+
+<!--          history-->
+          <div>
+            <p class="text-lg">Historique</p>
+            <p class="text-lg">{{ business.history }}</p>
+          </div>
+
         <!-- Business Description -->
         <div class="text-center mb-8">
           <p class="text-lg">Découvrez notre entreprise et nos produits artisanaux uniques.</p>
