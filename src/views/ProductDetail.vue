@@ -23,7 +23,6 @@
         <div class="product-content">
           <h1 class="text-3xl font-bold mb-3 uppercase">{{ product.name }}</h1>
 
-          <!-- Product meta -->
           <div class="product-meta mb-4">
             <div class="badge badge-secondary badge-outline price">€{{ product.price }}</div>
             <div class="badge badge-info badge-outline">Matériel: {{ product.material }}</div>
