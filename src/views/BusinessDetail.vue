@@ -33,22 +33,15 @@
           </p>
         </div>
 
-<!--        biography-->
-        <div v-if="business.biography" class="text-center mb-8">
-          <p class="text-lg">Biographie</p>
-          <p class="text-lg">{{ business.biography }}</p>
-        </div>
-
-<!--          history-->
-          <div v-if="business.history">
-            <p class="text-lg">Historique</p>
-            <p class="text-lg">{{ business.history }}</p>
-          </div>
-
         <!-- Business Description -->
         <div class="text-center mb-8">
           <p class="text-lg">Découvrez notre entreprise et nos produits artisanaux uniques.</p>
         </div>
+      </div>
+
+      <div v-if="business.description" class="text-center mb-8">
+        <p class="text-lg">Description</p>
+        <p class="text-lg">{{ business.description }}</p>
       </div>
 
       <!-- Product List -->
@@ -104,7 +97,7 @@ onMounted(async () => {
         businessId: businessResponse.data.business.id,
       },
     });
-    products.value = productsResponse.data.products;
+    products.value = productsResponse.data;
 
   } catch (err) {
     console.error("Failed to fetch business or product details:", err);
