@@ -39,10 +39,10 @@
         </div>
       </div>
 
-      <div v-if="business.description" class="text-center mb-8">
-        <p class="text-lg">Description</p>
-        <p class="text-lg">{{ business.description }}</p>
-      </div>
+<!--      <div v-if="business.description" class="text-center mb-8">-->
+<!--        <p class="text-lg">Description</p>-->
+<!--        <p class="text-lg">{{ business.description }}</p>-->
+<!--      </div>-->
 
       <!-- Product List -->
       <div v-if="products.length > 0" class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -98,6 +98,7 @@ onMounted(async () => {
       },
     });
     products.value = productsResponse.data;
+    console.log(products.value);
 
   } catch (err) {
     console.error("Failed to fetch business or product details:", err);
