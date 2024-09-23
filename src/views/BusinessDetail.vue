@@ -97,7 +97,7 @@ onMounted(async () => {
         businessId: businessResponse.data.business.id,
       },
     });
-    products.value = productsResponse.data;
+    products.value = productsResponse.data.data;
     console.log(products.value);
 
   } catch (err) {
